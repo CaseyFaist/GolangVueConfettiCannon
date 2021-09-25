@@ -6,21 +6,6 @@
     <li>
       <ClickMe/>
     </li>
-    <li>
-      <ClickMe/>
-    </li>
-    <li>
-      <ClickMe/>
-    </li>
-    <li>
-      <ClickMe/>
-    </li>
-    <li>
-      <ClickMe/>
-    </li>
-    <li>
-      <ClickMe/>
-    </li>
   </ul>
   </div>
 </template>
