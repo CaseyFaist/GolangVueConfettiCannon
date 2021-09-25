@@ -1,15 +1,39 @@
 <template>
+  <div>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <ul>
+    <li>
+      <ClickMe/>
+    </li>
+    <li>
+      <ClickMe/>
+    </li>
+    <li>
+      <ClickMe/>
+    </li>
+    <li>
+      <ClickMe/>
+    </li>
+    <li>
+      <ClickMe/>
+    </li>
+    <li>
+      <ClickMe/>
+    </li>
+  </ul>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import ClickMe from './components/ClickMe.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // HelloWorld,
+    ClickMe
   }
 }
 </script>
