@@ -1,2 +1,2 @@
 do:
-	go run main/main.go
+	go run backend/*
