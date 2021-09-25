@@ -1,4 +1,6 @@
 <script>
+// import webSocket from "../mixins/Websocket"
+
 export default { 
   name: "ClickMe",
   data() {
@@ -7,27 +9,29 @@ export default {
     }
   },
   // methods: {
-  //   clickButton: function() {
-  //       // $socket is [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) instance
-  //       this.$socket.send('some data')
-  //       console.log(this.$socket)
-  //       // or with {format: 'json'} enabled
-  //       // this.$socket.sendObj({awesome: 'data'})
-  //       this.count++
+  //   clickButton: function(data) {
+  //       // // var webSocket = new WebSocket("ws://localhost:8080")
+  //       // // webSocket.send(data)
+  //       // // this.$webSocketsConnect()
+  //       // webSocket.send(data)
+  //       // // this.$socket.send(data);
+  //       // console.log(data)
   //   }
   // }
 }
 </script>
 
+
 <template>
-  <button @click="clickButton">
+  <button class='counter' @click="count++">
+  <!-- <button class='counter' @click="count++; clickButton(count)"> -->
       You clicked me {{ count }} times.
   </button>
 </template>
 
 <style>
-.greeting {
-  color: red;
+.counter {
+  color: forestgreen;
   font-weight: bold;
 }
 </style>

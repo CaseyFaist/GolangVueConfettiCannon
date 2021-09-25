@@ -30,6 +30,12 @@ var (
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  4096,
 	WriteBufferSize: 4096,
+	CheckOrigin: func(r *http.Request) bool {
+		origin := r.Header.Get("Origin")
+		log.Printf(origin)
+		// return origin == "http://localhost"
+		return true
+	},
 }
 
 // Client represents the websocket client at the server
@@ -67,7 +73,6 @@ func (client *Client) readPump() {
 			}
 			break
 		}
-
 		client.wsServer.broadcast <- jsonMessage
 	}
 
