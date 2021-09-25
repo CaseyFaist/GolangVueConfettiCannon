@@ -26,26 +26,19 @@ export default {
       console.log(message)
       console.log(this.connection);
       this.connection.send(message);
+    },
+    increment () {
+      this.count += 1
     }
-  // methods: {
-  //   clickButton: function(data) {
-  //       // // var webSocket = new WebSocket("ws://localhost:8080")
-  //       // // webSocket.send(data)
-  //       // // this.$webSocketsConnect()
-  //       // webSocket.send(data)
-  //       // // this.$socket.send(data);
-  //       // console.log(data)
-  //   }
-  // }
   }
 }
 </script>
 
 
 <template>
-  <button class='counter' @click="count++; sendMessage(count)">
+  <button class='counter' @click="increment(); sendMessage(this.count)">
   <!-- <button class='counter' @click="count++; clickButton(count)"> -->
-      You clicked me {{ count }} times.
+      You clicked me {{ this.count }} times.
   </button>
 </template>
 
