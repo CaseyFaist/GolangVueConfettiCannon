@@ -8,24 +8,25 @@ export default {
       count: 0
     }
   },
-  created: function() {
-    console.log("Starting connection to WebSocket Server")
-    this.connection = new WebSocket("ws://localhost:8080/ws")
-
-    this.connection.onmessage = function(event) {
-      console.log(event);
-    }
-
-    this.connection.onopen = function(event) {
-      console.log(event)
-      console.log("Successfully connected to the echo websocket server...")
-    }
+  mounted: function() {
+    this.connectToWebsocket();
   },
   methods: {
+    connectToWebsocket() {
+        this.websocket = new WebSocket( "ws://localhost:8080/ws" );
+        this.websocket.addEventListener('open', (event) => { this.onWebsocketOpen(event) });
+        this.websocket.addEventListener('message', (event) => { this.handleNewMessage(event) });
+    },
+    onWebsocketOpen() {
+        console.log("Successfully connected to Websocket");        
+    },
+    handleNewMessage() {
+        // let data = event.data;
+        this.count += 1
+        console.log(this.count)
+    },
     sendMessage: function(message) {
-      console.log(message)
-      console.log(this.connection);
-      this.connection.send(message);
+      this.websocket.send(message);
     },
     increment () {
       this.count += 1
@@ -36,7 +37,7 @@ export default {
 
 
 <template>
-  <button class='counter' @click="increment(); sendMessage(this.count)">
+  <button class='counter' @click="sendMessage(this.count)">
   <!-- <button class='counter' @click="count++; clickButton(count)"> -->
       You clicked me {{ this.count }} times.
   </button>
