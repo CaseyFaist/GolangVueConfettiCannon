@@ -1,2 +1,2 @@
 do:
-	go run main/server.go
+	go run main/main.go
