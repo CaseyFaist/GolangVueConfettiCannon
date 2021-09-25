@@ -8,6 +8,25 @@ export default {
       count: 0
     }
   },
+  created: function() {
+    console.log("Starting connection to WebSocket Server")
+    this.connection = new WebSocket("ws://localhost:8080/ws")
+
+    this.connection.onmessage = function(event) {
+      console.log(event);
+    }
+
+    this.connection.onopen = function(event) {
+      console.log(event)
+      console.log("Successfully connected to the echo websocket server...")
+    }
+  },
+  methods: {
+    sendMessage: function(message) {
+      console.log(message)
+      console.log(this.connection);
+      this.connection.send(message);
+    }
   // methods: {
   //   clickButton: function(data) {
   //       // // var webSocket = new WebSocket("ws://localhost:8080")
@@ -18,12 +37,13 @@ export default {
   //       // console.log(data)
   //   }
   // }
+  }
 }
 </script>
 
 
 <template>
-  <button class='counter' @click="count++">
+  <button class='counter' @click="count++; sendMessage(count)">
   <!-- <button class='counter' @click="count++; clickButton(count)"> -->
       You clicked me {{ count }} times.
   </button>
