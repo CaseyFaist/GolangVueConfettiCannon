@@ -1,0 +1,40 @@
+<template>
+  <canvas class="canvas" ref="myCanvas"></canvas>
+</template>
+
+<script>
+// import confettiCannon from '../animations/confettiCannon.js'
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const canvas = ref(['canvas'])
+    console.console.log(canvas);
+  }
+}
+
+</script>
+
+<style>
+body {
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+};
+
+#canvas {
+    background: linear-gradient(#9FF781, #F3F781);
+};
+
+.copy {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    font-family: 'Futura', 'Helvetica Neue', Helvetica;
+    color: #333;
+}
+</style>
+

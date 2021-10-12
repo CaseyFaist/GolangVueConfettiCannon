@@ -1,6 +1,4 @@
 <script>
-// import webSocket from "../mixins/Websocket"
-
 export default { 
   name: "ClickMe",
   data() {
